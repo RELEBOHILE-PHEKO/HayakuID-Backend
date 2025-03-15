@@ -5,4 +5,4 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 router.post('/create', authMiddleware, createPayment);
 
-module.exports = router;
+module.exports = router; // Correctly export the router

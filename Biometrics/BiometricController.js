@@ -1,17 +1,12 @@
-// backend/biometrics/biometricController.js
-
-const BiometricModel = require('./biometricModel'); // Adjust the path if necessary
-
-// Function to add biometric data
-exports.addBiometricData = async (req, res) => {
+// biometrics/biometricController.js
+export const addBiometricData = (req, res) => {
     try {
-        const { userId, biometricData } = req.body; // Assume the data comes from the request body
-        const newBiometric = new BiometricModel({ userId, biometricData });
-        await newBiometric.save();
-        res.status(201).json({ message: 'Biometric data saved successfully' });
+        const { userId, biometricData } = req.body;
+        // Logic to handle the biometric data (e.g., save to database)
+        console.log(`Received biometric data for user ${userId}:`, biometricData);
+        res.status(201).json({ message: 'Biometric data added successfully!' });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('Error adding biometric data:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
 };
-
-// Add more functions as needed (e.g., getBiometricData, deleteBiometricData)

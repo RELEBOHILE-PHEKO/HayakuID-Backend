@@ -1,9 +1,8 @@
-// PaymentController.js
-const stripe = require('stripe')(process.env.STRIPE_SECRET);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Updated environment variable
 const Payment = require('../models/Payment');
 
-if (!process.env.STRIPE_SECRET) {
-    throw new Error('STRIPE_SECRET is not defined');
+if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not defined');
 }
 
 const createPayment = async (req, res) => {
