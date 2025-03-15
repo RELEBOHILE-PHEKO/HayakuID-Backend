@@ -1,132 +1,83 @@
 
-```markdown
-# HayakuID Backend and Frontend
+# HayakuID
 
-Welcome to the HayakuID project! This repository contains both the backend API and frontend application for the HayakuID project, which provides essential functionalities for user management, data handling, and a user interface.
+## Digital Identity Management Platform for the Kingdom of Lesotho
 
-## Table of Contents
+HayakuID is a comprehensive digital identity management system designed to modernize the identification process in Lesotho by replacing manual processes with a secure, efficient digital solution.
 
-- [Backend Features](#backend-features)
-- [Frontend Features](#frontend-features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Endpoints (Backend)](#api-endpoints-backend)
-- [Running Tests (Backend)](#running-tests-backend)
-- [Deployment](#deployment)
-- [License](#license)
+## Project Overview
 
-## Backend Features
+HayakuID aims to revolutionize passport application and national ID document processes in Lesotho, addressing challenges such as limited access to government offices, long queues, and cumbersome paperwork. The platform particularly focuses on improving access for citizens in remote areas while enhancing security and reducing opportunities for fraud and corruption.
 
-- User authentication and authorization
-- File uploads (images and PDFs)
-- RESTful API for data operations
-- Secure and scalable architecture
+### Mission
 
-## Frontend Features
+To revolutionize digital identity management in Lesotho by providing a secure, efficient, and accessible platform that minimizes fraudulent activities and ensures the effective and timely delivery of public services.
 
-- Responsive user interface for HayakuID users
-- Authentication forms (Login/Signup)
-- File upload functionality via UI
-- User profile display and management
+## Key Features
 
-## Technologies Used
+- **Digital Application Management**
+    - Online application submission for passports and national IDs
+    - Real-time application tracking
+    - Document upload with validation
+    - Payment processing integration
 
-- **Backend:**
-  - Node.js
-  - Express.js
-  - MongoDB (or other preferred databases)
-  - JWT for authentication
-  - Jest for testing
+- **Biometric Authentication**
+    - Facial recognition
+    - Fingerprint authentication
+    - Multi-factor verification
 
-- **Frontend:**
-  - HTML
-  - CSS (Bootstrap framework)
-  - JavaScript (for client-side interactions)
-  - Axios (for API communication)
-  - React Router (for navigation)
+- **User Account Management**
+    - Secure user registration
+    - Profile management and updates
+    - Password recovery options
 
-## Installation
+- **Security Features**
+    - Fraud detection algorithms
+    - End-to-end encryption
+    - Compliance with data protection laws
 
-### Backend Installation
+## Technology Stack
 
-1. Clone the backend repository:
-   ```bash
-   git clone https://github.com/yourusername/hayakuid-backend.git
-   ```
-2. Navigate to the backend project directory:
-   ```bash
-   cd hayakuid-backend
-   ```
-3. Install the backend dependencies:
-   ```bash
-   npm install
-   ```
-4. Set up environment variables by creating a `.env` file based on `.env.example`.
+- **Frontend**: React with Bootstrap
+- **Backend**: (TBD) Options may include Django or Node.js
+- **Database**: PostgreSQL or MongoDB for document storage
+- **API**: RESTful APIs with HTTPS encryption
 
-### Frontend Installation
+## Development Approach
 
-1. Clone the frontend repository:
-   ```bash
-   git clone https://github.com/yourusername/hayakuid-frontend.git
-   ```
-2. Navigate to the frontend project directory:
-   ```bash
-   cd hayakuid-frontend
-   ```
-3. Install the frontend dependencies:
-   ```bash
-   npm install
+This project follows the Agile Development Model with 2-week sprint cycles, allowing for iterative development and continuous adaptation to changing requirements and user feedback.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14.0.0 or higher)
+- Python (v3.8 or higher) if using Django
+- npm or yarn
+- PostgreSQL or MongoDB
+
    ```
 
-## Usage
+## Project Structure
 
-### Backend
-
-To start the backend application in development mode, run:
-
-```bash
-npm run dev
+```
+hayakuid/
+├── frontend/            # React frontend application
+│   ├── public/          # Public assets
+│   └── src/             # Source files
+│       ├── components/  # Reusable UI components
+│       ├── pages/       # Application pages
+│       └── services/    # API services
+├── backend/             # Django backend application
+│   ├── api/             # API endpoints
+│   ├── authentication/  # Authentication modules
+│   ├── biometrics/      # Biometric processing
+│   └── documents/       # Document management
+└── docs/                # Documentation
 ```
 
-The server will start on `http://localhost:5000` (or the specified port).
+## Contact
 
-### Frontend
-
-To start the frontend application in development mode, run:
-
-```bash
-npm start
-```
-
-The frontend will be available at `http://localhost:3000` by default.
-
-## API Endpoints (Backend)
-
-### Authentication
-- **POST** `/api/auth/login`: Login a user
-- **POST** `/api/auth/register`: Register a new user
-
-### File Uploads
-- **POST** `/api/upload`: Upload images or PDF files
-
-### User Management
-- **GET** `/api/users`: Retrieve user information
-- **PUT** `/api/users/:id`: Update user information
-
-## Running Tests (Backend)
-
-To run the test suite for the backend, execute the following command:
-
-```bash
-npm test
-```
-
-Make sure the test environment is properly configured.
-
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-```
+**Project Maintainer:** Relebohile Pheko  
+📧 Email: relebohilepheko1@gmail.com
 
