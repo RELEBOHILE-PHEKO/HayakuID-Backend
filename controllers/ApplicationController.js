@@ -1,3 +1,4 @@
+// controllers/ApplicationController.js
 const Application = require('../models/Application');
 
 class ApplicationController {
@@ -247,4 +248,6 @@ class ApplicationController {
   }
 }
 
-module.exports = new ApplicationController();
+// Create and export an instance of the controller
+const applicationController = new ApplicationController();
+module.exports = applicationController;
