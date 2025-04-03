@@ -1,7 +1,7 @@
 // routes/documentRoutes.js
 const express = require('express');
 const router = express.Router();
-const documentController = require('../controllers/documentControllers');
+const documentController = require('../controllers/DocumentControllers');
 const { protect, authorize } = require('../middlewares/authMiddleware');
 const upload = require('../middlewares/UploadMiddleware.js');
 
