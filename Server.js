@@ -5,12 +5,11 @@ const passport = require('passport');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
-const morgan = require('morgan'); // Request logging
+const morgan = require('morgan');
 require('dotenv').config();
 
-// Database and routes
+// Database connection only - REMOVED the require('./routes')
 const dbConnection = require('./config/db');
-const routes = require('./routes'); // Consider consolidating routes
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -39,7 +38,7 @@ app.use(cors(corsOptions));
 // Middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-app.use(morgan('dev')); // Request logging
+app.use(morgan('dev'));
 app.use(passport.initialize());
 
 // Static files
@@ -53,9 +52,9 @@ mongoose.connect(process.env.MONGODB_URI)
     process.exit(1);
   });
 
-// Routes
+// Routes - IMPORTANT: Changed to direct requires
 app.use('/api/users', require('./routes/UserRoute'));
-app.use('/api/biometric', require('./biometrics/biometricRoute'));
+app.use('/api/biometric', require('./biometrics/biometricRoute')); // Note: path changed from './routes/BiometricRoute'
 app.use('/api/payments', require('./routes/PaymentRoute'));
 app.use('/api/applications', require('./routes/ApplicationRoute'));
 app.use('/api/documents', require('./routes/DocumentRoute'));
@@ -95,7 +94,6 @@ const server = app.listen(PORT, () => {
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 
-// Handle graceful shutdown
 process.on('SIGTERM', () => {
   server.close(() => {
     console.log('Server closed');
