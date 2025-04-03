@@ -10,7 +10,7 @@ const PaymentRoute = require('./routes/PaymentRoute'); // Payment routes
 require('./config/Passport')(passport); // Passport configuration
 
 const app = express();
-const PORT = process.env.PORT || 5003;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
