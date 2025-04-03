@@ -1,33 +1,25 @@
-// routes/applicationRoutes.js
+// routes/ApplicationRoute.js
 const express = require('express');
 const router = express.Router();
-const applicationController = require('../controllers/applicationController');
-const { protect, authorize } = require('../middlewares/authMiddleware');
+const ApplicationController = require('../controllers/ApplicationController');
+const { authenticate } = require('../middlewares/authMiddleware'); // Make sure this import matches your actual auth middleware
 
-// Protect all routes
-router.use(protect);
-
-// User routes (all users)
-router.route('/')
-  .post(applicationController.createApplication)
-  .get(applicationController.getUserApplications);
+// Base routes
+router.post('/', authenticate, ApplicationController.createApplication);
+router.get('/', authenticate, ApplicationController.getUserApplications);
 
 // Submit application
-router.route('/:id/submit')
-  .put(applicationController.submitApplication);
+router.put('/:id/submit', authenticate, ApplicationController.submitApplication);
 
 // Single application operations
-router.route('/:id')
-  .get(applicationController.getApplication)
-  .put(applicationController.updateApplication)
-  .delete(applicationController.deleteApplication);
+router.get('/:id', authenticate, ApplicationController.getApplication);
+router.put('/:id', authenticate, ApplicationController.updateApplication);
+router.delete('/:id', authenticate, ApplicationController.deleteApplication);
 
-// Admin only routes
-router.route('/admin/all')
-  .get(authorize('admin'), applicationController.getAllApplications);
+// Admin routes
+router.get('/admin/all', authenticate, ApplicationController.getAllApplications);
 
 // Change application status (admin only)
-router.route('/:id/status')
-  .put(authorize('admin'), applicationController.changeApplicationStatus);
+router.put('/:id/status', authenticate, ApplicationController.changeApplicationStatus);
 
 module.exports = router;
