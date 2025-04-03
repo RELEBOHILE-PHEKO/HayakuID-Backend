@@ -5,7 +5,7 @@ const passport = require('passport');
 require('dotenv').config(); // Load environment variables
 const dbConnection = require('./config/db'); // Your database connection
 const UserRoute = require('./routes/UserRoute'); // User routes
-const BiometricRoute = require('./Biometrics/BiometricRoute'); // Biometric routes
+const BiometricRoute = require('./biometrics/biometricRoute'); // Biometric routes
 const PaymentRoute = require('./routes/PaymentRoute'); // Payment routes
 require('./config/Passport')(passport); // Passport configuration
 
