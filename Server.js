@@ -24,7 +24,7 @@ dbConnection().then(() => {
     console.error('Database connection error:', err);
 });
 
-// Routes
+// routes
 app.use('/api/users', UserRoute);
 app.use('/api/biometric', BiometricRoute);
 app.use('/api/payments', PaymentRoute);
